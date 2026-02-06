@@ -3,7 +3,7 @@
  * Plugin Name: Podlove Subscribe Button
  * Plugin URI:  https://wordpress.org/extend/plugins/podlove-subscribe-button/
  * Description: Brings the Podlove Subscribe Button to your WordPress installation.
- * Version:     1.3.11
+ * Version:     1.3.12
  * Author:      Podlove
  * Author URI:  https://podlove.org
  * License:     MIT
@@ -153,7 +153,7 @@ class PodloveSubscribeButton {
 
 		// Fetch the (network)button by it's name
 		if ( ! $button = \PodloveSubscribeButton\Model\Button::get_button_by_name($args['button']) )
-			return sprintf( __('Oops. There is no button with the ID "%s".', 'podlove-subscribe-button'), $args['button'] );
+			return sprintf( __('Oops. There is no button with the ID "%s".', 'podlove-subscribe-button'), esc_html($args['button']) );
 
 		// Get button styling and options
 		$autowidth = self::interpret_width_attribute( self::get_array_value_with_fallback($args, 'width') );
